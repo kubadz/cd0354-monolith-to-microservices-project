@@ -20,8 +20,15 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
+        volumeMounts:
+        - name: aws-credentials
+          mountPath: /root/.aws
         envFrom:
         - configMapRef:
             name: env-configmap
         - secretRef:
             name: env-secret
+      volumes:
+      - name: aws-credentials
+        secret:
+          secretName: aws-secret
