@@ -28,6 +28,13 @@ spec:
             name: env-configmap
         - secretRef:
             name: env-secret
+        resources:
+          limits:
+            cpu: "3"
+            memory: "2Gi"
+          requests:
+            cpu: "1"
+            memory: "1Gi"
       volumes:
       - name: aws-credentials
         secret:
